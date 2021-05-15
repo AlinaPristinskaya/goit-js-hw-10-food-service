@@ -1,6 +1,6 @@
 import './styles.css';
 import gallery from './menu.json';
-import galleryMenu from './templates/menu.hbs';
+import galleryMenu from './template/menu.hbs';
 
 const Theme = {
   LIGHT: 'light-theme',
