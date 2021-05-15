@@ -1,3 +1,41 @@
 import './styles.css';
-import './menu.json';
-console.log('18');
+import gallery from './menu.json';
+import galleryMenu from './templates/menu.hbs';
+
+const Theme = {
+  LIGHT: 'light-theme',
+  DARK: 'dark-theme',
+};
+
+const bodyEl = document.querySelector('body');
+const themeSwitch = document.querySelector('#theme-switch-toggle');
+
+popTheme();
+themeSwitch.addEventListener('change', onInputClick);
+function onInputClick(e) {
+  if (e.target.checked) {
+    bodyEl.classList.add(Theme.DARK);
+    bodyEl.classList.remove(Theme.LIGHT);
+  } else {
+    bodyEl.classList.remove(Theme.DARK);
+    bodyEl.classList.add(Theme.LIGHT);
+  }
+
+  localStorage.setItem('themeDark', bodyEl.classList);
+}
+function popTheme() {
+  const theme = localStorage.getItem('themeDark');
+
+  if (theme === 'dark-theme') {
+    themeSwitch.checked = true;
+    bodyEl.classList.add(Theme.DARK);
+    bodyEl.classList.remove(Theme.LIGHT);
+  }
+}
+
+const galleryRef = document.querySelector('.js-menu');
+
+console.log(galleryRef);
+const galerryHTML = galleryMenu(gallery);
+console.log(galerryHTML);
+galleryRef.innerHTML = galerryHTML;
