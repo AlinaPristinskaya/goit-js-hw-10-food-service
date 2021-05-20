@@ -8,6 +8,7 @@ const Theme = {
 };
 
 const bodyEl = document.querySelector('body');
+bodyEl.classList.add(Theme.LIGHT);
 const themeSwitch = document.querySelector('#theme-switch-toggle');
 
 popTheme();
@@ -35,7 +36,7 @@ function popTheme() {
 
 const galleryRef = document.querySelector('.js-menu');
 
-console.log(galleryRef);
 const galerryHTML = galleryMenu(gallery);
-console.log(galerryHTML);
+
 galleryRef.innerHTML = galerryHTML;
+console.log(bodyEl.classList);
